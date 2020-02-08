@@ -1,0 +1,2 @@
+# comandos
+aqui guardo comandos
