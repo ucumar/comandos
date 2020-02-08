@@ -1,5 +1,7 @@
 Delalora@2020
 
+bietka78@78
+
 {
   "appId": "d97fddf6-5b2f-4160-b8c5-e55647c9c103",
   "displayName": "ServicePrincipalName",
