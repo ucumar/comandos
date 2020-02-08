@@ -1,0 +1,37 @@
+Delalora@2020
+
+{
+  "appId": "d97fddf6-5b2f-4160-b8c5-e55647c9c103",
+  "displayName": "ServicePrincipalName",
+  "name": "http://ServicePrincipalName",
+  "password": "c4f7af6d-c827-478f-a16d-917b1d5b9534",
+  "tenant": "7ff19032-0e81-47f1-bc76-6f0a9a2d288e"
+}
+
+az role assignment list --assignee d97fddf6-5b2f-4160-b8c5-e55647c9c103
+az login --service-principal --username d97fddf6-5b2f-4160-b8c5-e55647c9c103 --password c4f7af6d-c827-478f-a16d-917b1d5b9534 --tenant 7ff19032-0e81-47f1-bc76-6f0a9a2d288e
+
+[default]
+subscription_id=08920f63-6573-4ee5-91c6-96109e110f48
+client_id=d97fddf6-5b2f-4160-b8c5-e55647c9c103
+secret=c4f7af6d-c827-478f-a16d-917b1d5b9534
+tenant=7ff19032-0e81-47f1-bc76-6f0a9a2d288e
+
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: ansible-rg
+        location: eastus
+      register: rg
+    - debug:
+        var: rg
+
+
+# Install all preview versions of the Azure SDK for Python
+pip install --pre azure
+
+# Install the preview version for azure-storage-blob only.
+pip install --pre azure-storage-blob
